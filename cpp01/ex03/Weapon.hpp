@@ -9,12 +9,11 @@ class Weapon
 private:
     std::string _type;
 public:
-    Weapon(/* args */);
+    Weapon(std::string type);
     ~Weapon();
     std::string& getType();
     void  setType( std::string newtype );
+    std::string getType() const;
 };
-
-
 
 #endif
