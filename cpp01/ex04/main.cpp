@@ -40,6 +40,5 @@ int main(int argc, char const *argv[])
     std::string replaceWord = argv[3];
 
     replaceWordInfile(infile, outfile, targetWord, replaceWord);
-    // std::ifstream   infile(argv[1]);
     return 0;
 }
