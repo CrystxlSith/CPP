@@ -2,7 +2,7 @@
 # define WEAPON_HPP
 
 #include <iostream>
-#include "Weapon.hpp"
+
 
 class Weapon
 {
