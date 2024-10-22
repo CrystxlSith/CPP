@@ -1,6 +1,6 @@
 SRCS = main.cpp Harl.cpp
 CC = c++
-FLAGS = -Wall -Werror -Wextra -std=c++11
+FLAGS = -Wall -Werror -Wextra -std=c++98
 OBJS = ${SRCS:.cpp=.o}
 EXEC = harl
 RM = rm -rf

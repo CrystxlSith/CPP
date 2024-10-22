@@ -30,16 +30,24 @@ void    Harl::error( void )
 
 void    Harl::complain( std::string level )
 {
-    void (Harl::*HarlMemFn)(void);
-    void (Harl::*functionPointer[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    struct levelMap
+    {
+        std::string level;
+        void (Harl::*HarlMemFn)(void);
+    };
+    levelMap levelsmap[4] = {
+        {"debug", &Harl::debug},
+        {"info", &Harl::info},
+        {"warning", &Harl::warning},
+        {"error", &Harl::error},
+    };
     int i = 0;
     std::string levels[4] = {"debug", "info", "warning", "error"};
     while (i < 4)
     {
-        if (levels[i] == level)
+        if (levelsmap[i].level == level)
         {
-            HarlMemFn = functionPointer[i];
-            (this->*HarlMemFn)();
+            (this->*(levelsmap[i].HarlMemFn))();
             return ;
         }
         i++;
