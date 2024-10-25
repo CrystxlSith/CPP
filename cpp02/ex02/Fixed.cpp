@@ -58,6 +58,43 @@ int     Fixed::toInt( void ) const
     return _fixedPoint >> Bits;
 }
 
+bool    Fixed::operator>( const Fixed& rSYM)
+{
+    return (this->_fixedPoint > rSYM._fixedPoint);
+}
+
+bool    Fixed::operator<( const Fixed& rSYM)
+{
+    return (this->_fixedPoint < rSYM._fixedPoint);
+}
+
+bool    Fixed::operator<=( const Fixed& rSYM)
+{
+    return (this->_fixedPoint <= rSYM._fixedPoint);
+}
+
+bool    Fixed::operator>=( const Fixed& rSYM)
+{
+    return (this->_fixedPoint >= rSYM._fixedPoint);
+}
+
+bool    Fixed::operator==( const Fixed& rSYM)
+{
+    return (this->_fixedPoint == rSYM._fixedPoint);
+}
+
+bool    Fixed::operator!=( const Fixed& rSYM)
+{
+    return (this->_fixedPoint != rSYM._fixedPoint);
+}
+
+Fixed   Fixed::operator+( const Fixed& rSYM)
+{
+    Fixed   temp;
+    temp.setRawBits(this->_fixedPoint * rSYM._fixedPoint);
+    return ( temp );
+}
+
 std::ostream&	operator<<(std::ostream& o, Fixed const &rSym)
 {
    o << rSym.toFloat();

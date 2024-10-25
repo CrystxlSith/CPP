@@ -28,3 +28,30 @@ void    Harl::error( void )
     std::cout << "[ERROR] - This is unacceptable ! I want to speak to the manager now." << std::endl;
 }
 
+void    Harl::complain( std::string level )
+{
+    struct levelMap
+    {
+        std::string level;
+        void (Harl::*HarlMemFn)(void);
+    };
+    levelMap levelsmap[4] = {
+        {"debug", &Harl::debug},
+        {"info", &Harl::info},
+        {"warning", &Harl::warning},
+        {"error", &Harl::error},
+    };
+    int i = 0;
+    std::string levels[4] = {"debug", "info", "warning", "error"};
+    while (i < 4)
+    {
+        if (levelsmap[i].level == level)
+        {
+            (this->*(levelsmap[i].HarlMemFn))();
+            return ;
+        }
+        i++;
+    }
+    std::cout << "Unknown level : " << level << std::endl;
+}
+

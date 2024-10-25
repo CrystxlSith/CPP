@@ -1,7 +1,11 @@
-#include "Harl.cpp"
+#include "Harl.hpp"
 
-int main(int argc, char const *argv[])
+int main( void )
 {
-    /* code */
-    return 0;
+    Harl    harl = Harl();
+    harl.complain("debug");
+    harl.complain("info");
+    harl.complain("warning");
+    harl.complain("error");
+    return (0);
 }

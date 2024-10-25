@@ -1,8 +1,8 @@
-SRCS = main.cpp Harl.cpp
+SRCS = main.cpp Fixed.cpp
 CC = c++
 FLAGS = -Wall -Werror -Wextra -std=c++98
 OBJS = ${SRCS:.cpp=.o}
-EXEC = harl
+EXEC = fixed
 RM = rm -rf
 
 RED    = \033[31m
@@ -18,15 +18,15 @@ RESET  = \033[0m
 all: harl
 
 harl: $(OBJS)
-	echo "${CYAN}Compiling harl...${RESET}"
+	echo "${CYAN}Compiling Fixed...${RESET}"
 	${CC} ${FLAGS} ${SRCS} -o ${EXEC}
 	echo "${GREEN}Succes!!!${RESET}"
 clean:
-	echo "${RED}Cleaning harl...${RESET}"
+	echo "${RED}Cleaning Fixed...${RESET}"
 	${RM} ${OBJS}
 	echo "${GREEN}Succes!!!${RESET}"
 fclean:
-	echo "${RED}Cleaning harl...${RESET}"
+	echo "${RED}Cleaning Fixed...${RESET}"
 	${RM} ${OBJS}
 	${RM} ${EXEC}
 	echo "${GREEN}Succes!!!${RESET}"
