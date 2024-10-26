@@ -88,11 +88,37 @@ bool    Fixed::operator!=( const Fixed& rSYM)
     return (this->_fixedPoint != rSYM._fixedPoint);
 }
 
-Fixed   Fixed::operator+( const Fixed& rSYM)
+Fixed   Fixed::operator+( const Fixed& rSYM) const
 {
     Fixed   temp;
-    temp.setRawBits(this->_fixedPoint * rSYM._fixedPoint);
+    temp.setRawBits(this->_fixedPoint + rSYM._fixedPoint);
     return ( temp );
+}
+
+Fixed   Fixed::operator-( const Fixed& rSYM) const
+{
+    Fixed   temp;
+    temp.setRawBits(this->_fixedPoint - rSYM._fixedPoint);
+    return ( temp );
+}
+
+Fixed   Fixed::operator*( const Fixed& rSYM) const
+{
+    Fixed   temp;
+    temp.setRawBits((this->_fixedPoint * rSYM._fixedPoint) >> Bits);
+    return ( temp );
+}
+
+Fixed   Fixed::operator/( const Fixed& rSYM) const
+{
+    Fixed   temp;
+    temp.setRawBits((this->_fixedPoint << Bits) / rSYM._fixedPoint );
+    return ( temp );
+}
+
+Fixed   Fixed::operator++( const Fixed& rSYM)
+{
+
 }
 
 std::ostream&	operator<<(std::ostream& o, Fixed const &rSym)

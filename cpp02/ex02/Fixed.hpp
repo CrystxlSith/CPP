@@ -20,7 +20,16 @@ public:
     bool    operator>=( const Fixed& rSYM);
     bool    operator==( const Fixed& rSYM);
     bool    operator!=( const Fixed& rSYM);
-    Fixed   operator+( const Fixed& rSYM);
+    Fixed   operator+( const Fixed& rSYM) const ;
+    Fixed   operator*( const Fixed& rSYM) const ;
+    Fixed   operator-( const Fixed& rSYM) const ;
+    Fixed   operator/( const Fixed& rSYM) const ;
+    Fixed   operator++( int );
+    Fixed   operator--( int );
+    Fixed&   operator--( void );
+    Fixed&  operator++( void );
+
+
 
     float toFloat( void ) const;
     int toInt( void ) const;
