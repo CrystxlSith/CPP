@@ -58,32 +58,32 @@ int     Fixed::toInt( void ) const
     return _fixedPoint >> Bits;
 }
 
-bool    Fixed::operator>( const Fixed& rSYM)
+bool    Fixed::operator>( const Fixed& rSYM) const
 {
     return (this->_fixedPoint > rSYM._fixedPoint);
 }
 
-bool    Fixed::operator<( const Fixed& rSYM)
+bool    Fixed::operator<( const Fixed& rSYM) const
 {
     return (this->_fixedPoint < rSYM._fixedPoint);
 }
 
-bool    Fixed::operator<=( const Fixed& rSYM)
+bool    Fixed::operator<=( const Fixed& rSYM) const
 {
     return (this->_fixedPoint <= rSYM._fixedPoint);
 }
 
-bool    Fixed::operator>=( const Fixed& rSYM)
+bool    Fixed::operator>=( const Fixed& rSYM) const
 {
     return (this->_fixedPoint >= rSYM._fixedPoint);
 }
 
-bool    Fixed::operator==( const Fixed& rSYM)
+bool    Fixed::operator==( const Fixed& rSYM) const
 {
     return (this->_fixedPoint == rSYM._fixedPoint);
 }
 
-bool    Fixed::operator!=( const Fixed& rSYM)
+bool    Fixed::operator!=( const Fixed& rSYM) const
 {
     return (this->_fixedPoint != rSYM._fixedPoint);
 }
@@ -116,9 +116,57 @@ Fixed   Fixed::operator/( const Fixed& rSYM) const
     return ( temp );
 }
 
-Fixed   Fixed::operator++( const Fixed& rSYM)
+Fixed   Fixed::operator++( int )
 {
+    Fixed   temp(*this);
+    operator++();
+    return (temp);
+}
 
+Fixed&   Fixed::operator++( void )
+{
+    this->_fixedPoint++;
+    return (*this);
+}
+
+Fixed   Fixed::operator--( int )
+{
+    Fixed   temp(*this);
+    operator--();
+    return (temp);
+}
+
+Fixed&   Fixed::operator--( void )
+{
+    this->_fixedPoint--;
+    return (*this);
+}
+
+Fixed const &	Fixed::max(Fixed const &a, Fixed const &b)
+{
+    return (a > b ? a : b);
+}
+
+
+// Fixed const &  Fixed::max(Fixed const &a, Fixed const &b)
+// {
+//     return (a > b ? a : b);
+// }
+
+Fixed&  Fixed::max(Fixed &a, Fixed &b)
+{
+    return (a > b ? a : b);
+}
+
+Fixed&  Fixed::min(Fixed &a, Fixed &b)
+{
+    return (a < b ? a : b);
+}
+
+
+Fixed const &  Fixed::min(Fixed const &a, Fixed const &b)
+{
+    return (a < b ? a : b);
 }
 
 std::ostream&	operator<<(std::ostream& o, Fixed const &rSym)
