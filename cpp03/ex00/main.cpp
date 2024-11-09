@@ -2,22 +2,14 @@
 
 int main( void )
 {
-    std::string input;
+    ClapTrap claptrap("Claptrap");
+    ClapTrap claptrap2("Claptrap2");
 
-    std::cout << "What is the name of your ClapTrap? " << std::endl;
-    std::getline(std::cin, input);
-    ClapTrap clappy(input.c_str());
-
-    std::cout << "Who did he Attack? " << std::endl;
-    std::getline(std::cin, input);
-    clappy.attack(input.c_str());
-
-    std::cout << "How much damage did he take ? " << std::endl;
-    std::getline(std::cin, input);
-    clappy.takeDamage(atoi(input.c_str()));
-
-    std::cout << "How much damage do you want to repair? " << std::endl;
-    std::getline(std::cin, input);
-    clappy.beRepaired(atoi(input.c_str()));
+    claptrap.attack("Skag");
+    claptrap.takeDamage(5);
+    claptrap.beRepaired(5);
+    claptrap2.attack("Skag");
+    claptrap2.takeDamage(5);
+    claptrap2.beRepaired(5);
     return 0;
 }

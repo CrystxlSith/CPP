@@ -8,7 +8,7 @@ ClapTrap::ClapTrap( void ) : _name(""), _hitpoints(10), _energyPoints(10), _atta
 ClapTrap::ClapTrap( std::string name ) : _name(name), _hitpoints(10), _energyPoints(10), _attackDamage(2)
 {
     std::cout << "String constructor called" << std::endl;
-    std::cout << "ClapTrap " << this->_name << " is born !" << std::endl;
+    std::cout << "ClapTrap " << this->getName() << " is born !" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& claptrap)
@@ -24,8 +24,8 @@ ClapTrap::~ClapTrap()
 
 void    ClapTrap::attack(const std::string& target)
 {
-    if (this->_energyPoints > 0 && this->_attackDamage > 0)
-        std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage !" << std::endl;
+    if (this->getEnergyPoints() > 0 && this->getAttackDamage() > 0)
+        std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->getAttackDamage() << " points of damage !" << std::endl;
     else
     {
         std::cout << "ClapTrap " << this->_name << " doesn't have enough energy or Attack damages!" << std::endl;
@@ -41,31 +41,31 @@ void    ClapTrap::takeDamage( unsigned int amount )
         amount = 10;
     if (amount < 1)
     {
-        std::cout << "ClapTrap " << this->_name << " can't take this amount of damages !" << std::endl;
+        std::cout << "ClapTrap " << this->getName() << " can't take this amount of damages !" << std::endl;
         return ;
     }
     if (this->_hitpoints <= 0)
     {
-        std::cout << "ClapTrap " << this->_name << " is already dead !" << std::endl;
+        std::cout << "ClapTrap " << this->getName() << " is already dead !" << std::endl;
         return ;
     }
     else
     {
-        std::cout << "ClapTrap " << this->_name << " take " << amount << " damage(s) !" << std::endl;
+        std::cout << "ClapTrap " << this->getName() << " take " << amount << " damage(s) !" << std::endl;
         this->_hitpoints -= amount;
     }
 }
 
 void    ClapTrap::beRepaired( unsigned int amount )
 {
-    if ((amount + this->_hitpoints) <= 10 && (amount + this->_hitpoints) >= 1)
+    if ((amount + this->getHitpoints()) <= 10 && (amount + this->getHitpoints()) >= 1)
     {
-        std::cout << "ClapTrap " << this->_name << " repairs " << amount << " damage(s)! " << "He now has " << this->_hitpoints + amount << " hit points." << std::endl;
+        std::cout << "ClapTrap " << this->getName() << " repairs " << amount << " damage(s)! " << "He now has " << this->getHitpoints() + amount << " hit points." << std::endl;
         this->_hitpoints += amount;
         this->_energyPoints -= 1;
     }
     else
-        std::cout << "ClapTrap " << _name << " can't repare this amount of damages !" << std::endl;
+        std::cout << "ClapTrap " << getName() << " can't repare this amount of damages !" << std::endl;
 }
 
 void    ClapTrap::setName( std::string name )
