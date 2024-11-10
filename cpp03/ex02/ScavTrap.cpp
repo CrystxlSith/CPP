@@ -3,18 +3,21 @@
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
     std::cout << "ScavTrap Default constructor called" << std::endl;
-}
-
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
-{
-    std::cout << "ScavTrap String constructor called" << std::endl;
-    std::cout << "ScavTrap " << this->getName() << " is born !" << std::endl;
+    this->setName("");
     this->setHitpoints(100);
     this->setEnergyPoints(50);
     this->setAttackDamage(20);
 }
 
-ScavTrap::ScavTrap(const ScavTrap& scavtrap)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+{
+    std::cout << "ScavTrap String constructor called" << std::endl;
+    this->setHitpoints(100);
+    this->setEnergyPoints(50);
+    this->setAttackDamage(20);
+}
+
+ScavTrap::ScavTrap(const ScavTrap& scavtrap) : ClapTrap(scavtrap)
 {
     std::cout << "ScavTrap Copy constructor called" << std::endl;
     *this = scavtrap;
@@ -38,8 +41,15 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& scavtrap)
 
 void    ScavTrap::attack(std::string const & target)
 {
-    std::cout << "ScavTrap " << this->getName() << " attack " << target << ", causing " << this->getAttackDamage() << " points of damage !" << std::endl;
-    this->setEnergyPoints(this->getEnergyPoints() - 1);
+    if (this->getEnergyPoints() > 0)
+    {
+        std::cout << "ScavTrap " << this->getName() << " attack " << target << ", causing " << this->getAttackDamage() << " points of damage !" << std::endl;
+        this->setEnergyPoints(this->getEnergyPoints() - 1);
+    }
+    else
+    {
+        std::cout << "ScavTrap " << this->getName() << " doesn't have enough energy!" << std::endl;
+    }
 }
 
 void    ScavTrap::guardGate(void)

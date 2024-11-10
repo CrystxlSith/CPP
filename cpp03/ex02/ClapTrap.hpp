@@ -1,6 +1,7 @@
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
+#pragma once
 #include <iostream>
 #include <cstdlib>
 
@@ -15,7 +16,7 @@ public:
     ClapTrap(void);
     ClapTrap(std::string name);
     ClapTrap(const ClapTrap& claptrap);
-    ~ClapTrap();
+    ~ClapTrap(void);
     // SETTERS
     void   setName( std::string name );
     void   setHitpoints( int hitpoints );
