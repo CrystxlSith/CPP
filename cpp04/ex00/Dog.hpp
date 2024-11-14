@@ -2,18 +2,16 @@
 
 #include "Animal.hpp"
 
-class Dog : virtual public Animal
+class Dog : public Animal
 {
 private:
     /* data */
 public:
     Dog(void);
-    Dog(std::string type);
     Dog(const Dog& copy);
-    ~Dog();
-    // Dog(std::string name);
+    virtual ~Dog();
     //METHODS
-    void    makeSound(void) const;
+    virtual void    makeSound(void) const;
     // OPERATOR OVERLOAD
     Dog& operator=(Dog const& rhs);
 };

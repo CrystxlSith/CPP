@@ -19,7 +19,7 @@ Animal::Animal(const Animal& copy)
 
 Animal::~Animal()
 {
-        std::cout << "Animal constructor called" << std::endl;
+        std::cout << "Animal destructor called" << std::endl;
 }
 
 void    Animal::makeSound(void) const

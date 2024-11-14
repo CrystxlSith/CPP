@@ -2,19 +2,19 @@
 
 #include <iostream>
 
-class Animal
+class WrongAnimal
 {
 protected:
     std::string _type;
 public:
-    Animal(void);
-    Animal(std::string type);
-    Animal(const Animal& copy);
-    virtual ~Animal();
+    WrongAnimal(void);
+    WrongAnimal(std::string type);
+    WrongAnimal(const WrongAnimal& copy);
+    virtual ~WrongAnimal();
     // Methods
     virtual void    makeSound(void) const;
     // Operator overloads
-    Animal& operator=(Animal const& rhs);
+    WrongAnimal& operator=(WrongAnimal const& rhs);
     // Getters && Setters
     std::string getType(void) const;
     void    setType(std::string type);

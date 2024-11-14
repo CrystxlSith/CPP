@@ -1,4 +1,4 @@
-SRCS = main.cpp Animal.cpp Dog.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 CC = c++
 FLAGS = -Wall -Werror -Wextra -std=c++98
 OBJS = ${SRCS:.cpp=.o}
