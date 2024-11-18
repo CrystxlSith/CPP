@@ -3,7 +3,7 @@
 
 int main()
 {
-    Animal* animals[50];
+    AAnimal* animals[50];
 
     for (int i = 0; i < 25; i++)
         animals[i] = new Cat();

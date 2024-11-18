@@ -5,7 +5,7 @@
 
 class Brain;
 
-class Cat : public Animal
+class Cat : public AAnimal
 {
 private:
     Brain* _brain;

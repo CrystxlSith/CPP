@@ -1,11 +1,11 @@
 #include "Dog.hpp"
 
-Dog::Dog(void) : Animal("Dog"), _brain(new Brain())
+Dog::Dog(void) : AAnimal("Dog"), _brain(new Brain())
 {
     std::cout << "Dog constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog& copy) : Animal(copy), _brain(new Brain(*copy._brain))
+Dog::Dog(const Dog& copy) : AAnimal(copy), _brain(new Brain(*copy._brain))
 {
     std::cout << "Dog copy cosntructor called" << std::endl;
     this->_type = copy._type;

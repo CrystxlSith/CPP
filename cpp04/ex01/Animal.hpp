@@ -1,6 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include <stdlib.h>
+#include <iterator>
 
 class Animal
 {
