@@ -13,14 +13,34 @@ private:
     unsigned int _grade;
 public:
     Bureaucrat(); // Default constructor
-    Bureaucrat(std::string& name, unsigned int grade);  // Constructor with parameters
+    Bureaucrat(std::string& name,int grade);  // Constructor with parameters
+    Bureaucrat(const Bureaucrat &other);
     ~Bureaucrat(); // Destructor
     // GETTERS AND SETTERS
-    void setName(std::string name); // Set name
-    void setGrade(int grade); // Set grade
-    void getName(void); // Get name
- 
+    unsigned int getGrade(int grade) const; // Set grade
+    std::string getName(void) const; // Get name
     // OPERATOR OVERLOAD
     Bureaucrat& operator<<(Bureaucrat const& rhs); // Assignment operator
+    Bureaucrat& operator=(Bureaucrat const& rhs);
+
+    void incrementGrade(void); // Increment grade
+    void decrementGrade(void); // Decrement grade
+    // EXCEPTIONS
+    class GradeTooHighException : public std::exception
+    {
+        public:
+            virtual const char* what() const throw()
+            {
+                return "Grade is too high";
+            }
+    };
+    class GradeTooLowException : public std::exception
+    {
+        public:
+            virtual const char* what() const throw()
+            {
+                return "Grade is too low";
+            }
+    };
 };
 
