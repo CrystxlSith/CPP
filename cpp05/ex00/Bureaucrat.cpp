@@ -7,7 +7,6 @@ Bureaucrat::Bureaucrat(/* args */) : _name("No one"), _grade(150)
 
 Bureaucrat::Bureaucrat(std::string& name, int grade) : _name(name)
 {
-    std::cout << "Bureaucrat constructor called" << std::endl;
     if (grade > MINGRADE)
         throw Bureaucrat::GradeTooLowException();
     if (grade < MAXGRADE)
@@ -17,19 +16,16 @@ Bureaucrat::Bureaucrat(std::string& name, int grade) : _name(name)
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade()
 {
-  std::cout << "[Bureaucrat] Copy constructor called." << std::endl;
   *this = other;
 }
 
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
-  std::cout << "[Bureaucrat] Copy assignment called." << std::endl;
   if (this == &other)
     return *this;
   this->_grade = other._grade;
@@ -49,7 +45,7 @@ void Bureaucrat::decrementGrade(void)
     this->_grade++;
 }
 
-unsigned int Bureaucrat::getGrade(int grade) const
+unsigned int Bureaucrat::getGrade(void) const
 {
     return this->_grade;
 }
@@ -59,8 +55,18 @@ std::string Bureaucrat::getName(void) const
     return this->_name;
 }
 
-Bureaucrat& Bureaucrat::operator<<(Bureaucrat const& rhs)
+/**
+ * @brief Overloads the insertion operator to output the details of a Bureaucrat object.
+ *
+ * This operator allows you to use the << operator to print the name and grade of a Bureaucrat object
+ * in the format: "name, bureaucrat grade grade".
+ *
+ * @param os The output stream to which the Bureaucrat details will be written.
+ * @param bur The Bureaucrat object whose details are to be printed.
+ * @return A reference to the output stream.
+ */
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bur)
 {
-    std::cout << "Bureaucrat operator<< called" << std::endl;
-    return *this;
+    os << bur.getName() << ", bureaucrat grade " << bur.getGrade();
+    return os;
 }

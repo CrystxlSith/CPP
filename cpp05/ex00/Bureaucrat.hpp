@@ -17,10 +17,10 @@ public:
     Bureaucrat(const Bureaucrat &other);
     ~Bureaucrat(); // Destructor
     // GETTERS AND SETTERS
-    unsigned int getGrade(int grade) const; // Set grade
+    unsigned int getGrade(void) const; // Set grade
     std::string getName(void) const; // Get name
     // OPERATOR OVERLOAD
-    Bureaucrat& operator<<(Bureaucrat const& rhs); // Assignment operator
+    friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& Bur); // Output stream operator
     Bureaucrat& operator=(Bureaucrat const& rhs);
 
     void incrementGrade(void); // Increment grade
