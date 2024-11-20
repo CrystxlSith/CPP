@@ -43,6 +43,17 @@ void Contact::setRname(const std::string rname)
 
 void Contact::setPhonenb(const std::string phonenb)
 {
+	int i = 0;
+
+	while (phonenb[i])
+	{
+		if (std::isalpha(phonenb[i]))
+		{
+			_phonenb = "(none)";
+			return ;
+		}
+		i++;
+	}
 	_phonenb = phonenb;
 }
 

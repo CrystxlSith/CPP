@@ -20,8 +20,6 @@ PhoneBook::~PhoneBook()
 // Format string to 10 characters
 std::string formatString(const std::string& str)
 {
-    // If string is longer than 10 characters, truncate it
-    // Else, add spaces to make it 10 characters long
     if (str.length() > 10)
     {
         return str.substr(0, 9) + ".";

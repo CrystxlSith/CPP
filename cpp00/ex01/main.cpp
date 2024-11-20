@@ -14,6 +14,8 @@ int main()
     {
         welcome_message();
         std::getline(std::cin, input);
+        if (input.empty())
+            break;
         if (input == "ADD")
             phonebook.create_contact(phonebook);
         else if (input == "SEARCH")

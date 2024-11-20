@@ -30,3 +30,5 @@ fclean:
 	${RM} ${OBJS}
 	${RM} ${EXEC}
 	echo "${GREEN}Succes!!!${RESET}"
+
+re : fclean all
