@@ -6,7 +6,9 @@ private:
     /* data */
 public:
     ShrubberyCreationForm(/* args */);
-    ~ShrubberyCreationForm();
+    virtual ~ShrubberyCreationForm();
+
+    virtual void executeForm( AForm const & form );
 };
 
 

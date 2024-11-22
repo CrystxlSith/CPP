@@ -2,7 +2,7 @@
 
 AForm::AForm(/* args */) : _gradeSign(150), _name("base AForm"), _signed(false), _gradeExec(150)  {}
 
-AForm::AForm( std::string& name, int gradeToSign, int gradeToExec ) : _gradeSign(gradeToSign), _name(name), _signed(false), _gradeExec(gradeToExec)
+AForm::AForm( const std::string& name, int gradeToSign, int gradeToExec ) : _gradeSign(gradeToSign), _name(name), _signed(false), _gradeExec(gradeToExec)
 {
     if (gradeToSign > MINGRADE)
         throw AForm::GradeTooLowException();

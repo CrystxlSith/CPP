@@ -15,12 +15,12 @@ private:
     const unsigned int  _gradeExec;
 public:
     AForm(/* args */);
-    AForm( std::string& name, int gradeToSign, int gradeToExec );
+    AForm( const std::string& name, int gradeToSign, int gradeToExec );
     AForm( const AForm& rhs);
     ~AForm();
 
     // METHODS
-    virtual void    beSigned(const Bureaucrat& rhs) = 0;
+    void    beSigned(const Bureaucrat& rhs);
     virtual void    executeForm(AForm const & form) = 0;
 
     // GETTERS
