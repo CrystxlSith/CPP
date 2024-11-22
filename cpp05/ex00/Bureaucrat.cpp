@@ -2,7 +2,6 @@
 
 Bureaucrat::Bureaucrat(/* args */) : _name("No one"), _grade(150)
 {
-    std::cout << "Bureaucrat constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string& name, int grade) : _name(name)
