@@ -54,16 +54,14 @@ std::string Bureaucrat::getName(void) const
     return this->_name;
 }
 
-/**
- * @brief Overloads the insertion operator to output the details of a Bureaucrat object.
- *
- * This operator allows you to use the << operator to print the name and grade of a Bureaucrat object
- * in the format: "name, bureaucrat grade grade".
- *
- * @param os The output stream to which the Bureaucrat details will be written.
- * @param bur The Bureaucrat object whose details are to be printed.
- * @return A reference to the output stream.
- */
+void    Bureaucrat::signForm(const bool &signature, std::string &nameForm) const
+{
+    if (signature == true)
+        std::cout << this->_name << " signed " << nameForm << std::endl;
+    else
+        std::cout << this->_name << "couldn't sign" << nameForm << " because he don't have the rights to do this" << std::endl;
+}
+
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bur)
 {
     os << bur.getName() << ", bureaucrat grade " << bur.getGrade();

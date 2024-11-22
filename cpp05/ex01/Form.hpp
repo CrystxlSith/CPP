@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Bureaucrat.hpp"
 #include <iostream>
 #include <stdlib.h>
 #define MAXGRADE 1
@@ -18,12 +19,15 @@ public:
     Form( const Form& rhs);
     ~Form();
 
+    // METHODS
+    void            beSigned(const Bureaucrat& rhs);
+
     // GETTERS
     std::string     getName() const { return _name; }
     unsigned int    getGradeSign() const { return _gradeSign; }
     unsigned int    getGradeExec() const { return _gradeExec; }
     bool            getSignature() const { return _signed; }
-    Form& operator=(Form const& rhs);
+    
     // EXCEPTIONS 
     class GradeTooHighException : public std::exception
     {
@@ -41,5 +45,10 @@ public:
                 return "Grade is too low";
             }
     };
+
+    // OPERATOR OVERLOAD
+    Form& operator=(Form const& rhs);
 };
+
+std::ostream& operator<<(std::ostream& os, const Form& Bur); // Output stream operator
 

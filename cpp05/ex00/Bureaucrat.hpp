@@ -19,8 +19,11 @@ public:
     // GETTERS AND SETTERS
     unsigned int getGrade(void) const; // Set grade
     std::string getName(void) const; // Get name
+
+    // METHODS
+    void        signForm(const bool &signature, std::string &nameForm) const;
+
     // OPERATOR OVERLOAD
-    friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& Bur); // Output stream operator
     Bureaucrat& operator=(Bureaucrat const& rhs);
 
     void incrementGrade(void); // Increment grade
@@ -43,4 +46,6 @@ public:
             }
     };
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& Bur); // Output stream operator
 

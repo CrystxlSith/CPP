@@ -7,7 +7,7 @@ Dog::Dog(void) : AAnimal("Dog"), _brain(new Brain())
 
 Dog::Dog(const Dog& copy) : AAnimal(copy), _brain(new Brain(*copy._brain))
 {
-    std::cout << "Dog copy cosntructor called" << std::endl;
+    std::cout << "Dog copy constructor called" << std::endl;
     this->_type = copy._type;
 }
 
