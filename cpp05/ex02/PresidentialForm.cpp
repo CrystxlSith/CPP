@@ -1,6 +1,6 @@
 #include "PresidentialForm.hpp"
 
-PresidentialForm::PresidentialForm(Bureaucrat & target) : _target(target), AForm("President", 25, 5)
+PresidentialForm::PresidentialForm(Bureaucrat & target) :  AForm("President", 25, 5), _target(target)
 {
     std::cout << "PresidentialForm constructror called" << std::endl;
 }
