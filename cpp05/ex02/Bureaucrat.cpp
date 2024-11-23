@@ -1,9 +1,10 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(/* args */) : _name("No one"), _grade(150) {}
+Bureaucrat::Bureaucrat(/* args */) : _name("No one"), _grade(150) { std::cout << "{1} Bureaucrat constructor called" << std::endl; }
 
 Bureaucrat::Bureaucrat(std::string& name, int grade) : _name(name)
 {
+    std::cout << "{2} Bureaucrat constructor called" << std::endl;
     if (grade > MINGRADE)
         throw Bureaucrat::GradeTooLowException();
     if (grade < MAXGRADE)
@@ -13,11 +14,12 @@ Bureaucrat::Bureaucrat(std::string& name, int grade) : _name(name)
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade()
 {
-  *this = other;
+    std::cout << "Bureaucrat copy constructor called" << std::endl;
+    *this = other;
 }
 
 
-Bureaucrat::~Bureaucrat(){}
+Bureaucrat::~Bureaucrat(){ std::cout << "Bureaucrat destructor called" << std::endl; }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {

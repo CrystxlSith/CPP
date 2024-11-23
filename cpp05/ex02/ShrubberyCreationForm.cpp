@@ -1,8 +1,14 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(Bureaucrat & target) : AForm::AForm("bigTree", 145, 137), _target(target) {}
+ShrubberyCreationForm::ShrubberyCreationForm(Bureaucrat & target) : AForm("bigTree", 145, 137), _target(target) { std::cout << "ShrubberyCreationForm constructor called" << std::endl; }
+
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &src) : AForm(src), _target(src._target) {
+	std::cout << " ShrubberyCreationForm copy constructor called." << std::endl;
+	*this = src;
+}
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
+
 
 void    ShrubberyCreationForm::execute( Bureaucrat const & executor )
 {
@@ -26,4 +32,11 @@ void    ShrubberyCreationForm::execute( Bureaucrat const & executor )
     }
     else
         std::cout << "This form isn't signed, i cant't execute it!" << std::endl;
+}
+
+ShrubberyCreationForm &	ShrubberyCreationForm::operator=(ShrubberyCreationForm const &rSym) {
+	if (this != &rSym) {
+		this->_target = rSym._target;
+	}
+	return *this;
 }

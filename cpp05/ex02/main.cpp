@@ -1,6 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main(void)
 {
@@ -8,8 +9,8 @@ int main(void)
     std::string formName = "Death certificate";
     try
     {
-        Bureaucrat bbl(name, 138);
-        ShrubberyCreationForm        formy(bbl);
+        Bureaucrat bbl(name, 40);
+        RobotomyRequestForm       formy(bbl);
         formy.beSigned(bbl);
         formy.execute(bbl);
         std::cout << bbl << std::endl;
