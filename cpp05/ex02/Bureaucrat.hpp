@@ -1,10 +1,13 @@
 #pragma once
 
+#include "AForm.hpp"
 #include <iostream>
 #include <stdlib.h>
 
 #define MINGRADE 150
 #define MAXGRADE 1
+
+class AForm;
 
 class Bureaucrat
 {
@@ -21,6 +24,7 @@ public:
     std::string getName(void) const; // Get name
 
     // METHODS
+    void         executeForm(AForm const & form) const;
     void        signForm(const bool &signature, std::string const &nameForm) const;
 
     // OPERATOR OVERLOAD

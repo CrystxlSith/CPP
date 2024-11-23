@@ -1,8 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(/* args */) : _name("No one"), _grade(150)
-{
-}
+Bureaucrat::Bureaucrat(/* args */) : _name("No one"), _grade(150) {}
 
 Bureaucrat::Bureaucrat(std::string& name, int grade) : _name(name)
 {
@@ -19,9 +17,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade()
 }
 
 
-Bureaucrat::~Bureaucrat()
-{
-}
+Bureaucrat::~Bureaucrat(){}
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
@@ -60,6 +56,14 @@ void    Bureaucrat::signForm(const bool &signature, std::string const &nameForm)
         std::cout << this->_name << " signed " << nameForm << std::endl;
     else
         std::cout << this->_name << "couldn't sign" << nameForm << " because he don't have the rights to do this" << std::endl;
+}
+
+void     Bureaucrat::executeForm(AForm const & form) const
+{
+    if (this->_grade <= form.getGradeSign())
+        std::cout << this->_name << " execute " << form.getName() << std::endl;
+    else
+        throw Bureaucrat::GradeTooLowException();
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bur)

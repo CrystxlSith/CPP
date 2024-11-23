@@ -6,6 +6,8 @@
 #define MAXGRADE 1
 #define MINGRADE 150
 
+class Bureaucrat;
+
 class AForm
 {
 private:
@@ -21,7 +23,7 @@ public:
 
     // METHODS
     void    beSigned(const Bureaucrat& rhs);
-    virtual void    executeForm(AForm const & form) = 0;
+    virtual void    execute( Bureaucrat const & executor ) = 0;
 
     // GETTERS
     std::string     getName() const { return _name; }

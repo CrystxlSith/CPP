@@ -1,14 +1,17 @@
+#pragma once
+
 #include "AForm.hpp"
+#include <fstream>
 
 class ShrubberyCreationForm : public AForm
 {
 private:
-    /* data */
+    Bureaucrat& _target;
 public:
-    ShrubberyCreationForm(/* args */);
+    ShrubberyCreationForm(Bureaucrat & target);
     virtual ~ShrubberyCreationForm();
 
-    virtual void executeForm( AForm const & form );
+    virtual void execute( Bureaucrat const & executor );
 };
 
 

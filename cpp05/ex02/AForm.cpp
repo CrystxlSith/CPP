@@ -29,16 +29,16 @@ AForm    &AForm::operator=(const AForm &rhs)
     return *this;
 }
 
-// void     AForm::beSigned(const Bureaucrat& rhs)
-// {
-//     if (rhs.getGrade() <= this->getGradeSign())
-//     {
-//         this->_signed = true;
-//         rhs.signForm(this->_signed, this->getName());
-//     }
-//     else
-//         throw AForm::GradeTooLowException();
-// }
+void     AForm::beSigned(const Bureaucrat& rhs)
+{
+    if (rhs.getGrade() <= this->getGradeSign())
+    {
+        this->_signed = true;
+        rhs.signForm(this->_signed, this->getName());
+    }
+    else
+        throw AForm::GradeTooLowException();
+}
 
 
 std::ostream& operator<<(std::ostream& os, const AForm& AForm)
