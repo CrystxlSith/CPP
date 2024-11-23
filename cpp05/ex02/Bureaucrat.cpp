@@ -60,7 +60,7 @@ void    Bureaucrat::signForm(const bool &signature, std::string const &nameForm)
 
 void     Bureaucrat::executeForm(AForm const & form) const
 {
-    if (this->_grade <= form.getGradeSign())
+    if (this->_grade <= form.getGradeExec())
         std::cout << this->_name << " execute " << form.getName() << std::endl;
     else
         throw Bureaucrat::GradeTooLowException();
