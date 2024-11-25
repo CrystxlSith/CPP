@@ -1,6 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string & target) : AForm("bigTree", 145, 137), _target(target) { std::cout << "ShrubberyCreationForm constructor called" << std::endl; }
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("bigTree", 145, 137), _target(target) { std::cout << "ShrubberyCreationForm constructor called" << std::endl; }
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &src) : AForm(src), _target(src._target) {
 	std::cout << " ShrubberyCreationForm copy constructor called." << std::endl;

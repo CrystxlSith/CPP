@@ -6,25 +6,73 @@
 #include "Intern.hpp"
 
 
-int main() {
-    Intern intern;
+int	main() {
+	Bureaucrat *	Donald = new Bureaucrat("Donald", 2);
+	Bureaucrat *	Joe = new Bureaucrat("Joe", 10);
+	Bureaucrat *	Miguel = new Bureaucrat("Miguel", 65);
+	Intern *		nobody = new Intern();
+	AForm *			shru = new ShrubberyCreationForm(Joe->getName());
+	AForm *			robot = new RobotomyRequestForm(Donald->getName());
+	AForm *			ppf = NULL;
 
-    try {
-        AForm* form1 = intern.makeForm("robotomy request", "Target A");
-        // delete form1; // Libérer la mémoire
-    } catch (const Intern::WrongNameException& e) {
-        std::cerr << e.what() << std::endl;
-    }
+	try {
+		ppf = nobody->makeForm("presidentiaf pardon", Miguel->getName());
+		robot->beSigned(*Miguel);
+		shru->beSigned(*Joe);
+		ppf->beSigned(*Joe);
+		robot->execute(*Donald);
+		shru->execute(*Donald);
+		ppf->execute(*Donald);
+	}
+	catch(const std::exception& e) {
+		std::cerr << e.what() << '\n';
+	}
 
-    try {
-        AForm* form2 = intern.makeForm("unknown form", "Target B");
-        // delete form2; // Libérer la mémoire
-    } catch (const Intern::WrongNameException& e) {
-        std::cerr << e.what() << std::endl;
-    }
+	std::cout << *shru << std::endl;
+	std::cout << *robot << std::endl;
 
-    return 0;
+	delete ppf;
+	delete robot;
+	delete shru;
+	delete nobody;
+	delete Miguel;
+	delete Joe;
+	delete Donald;
 }
+
+// int main() {
+//     Intern intern;
+
+//     try {
+//         AForm* form1 = intern.makeForm("robotomy request", "Target A");
+//         delete form1; // Libérer la mémoire
+//     } catch (const Intern::WrongNameException& e) {
+//         std::cerr << e.what() << std::endl;
+//     }
+
+//     try {
+//         AForm* form1 = intern.makeForm("shrubbery creation", "Target A");
+//         delete form1; // Libérer la mémoire
+//     } catch (const Intern::WrongNameException& e) {
+//         std::cerr << e.what() << std::endl;
+//     }
+
+//         try {
+//         AForm* form1 = intern.makeForm("presidential form", "Target A");
+//         delete form1; // Libérer la mémoire
+//     } catch (const Intern::WrongNameException& e) {
+//         std::cerr << e.what() << std::endl;
+//     }
+
+//     try {
+//         AForm* form2 = intern.makeForm("unknown form", "Target B");
+//         delete form2; // Libérer la mémoire
+//     } catch (const Intern::WrongNameException& e) {
+//         std::cerr << e.what() << std::endl;
+//     }
+
+//     return 0;
+// }
 
 // int main(void)
 // {

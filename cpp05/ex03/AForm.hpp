@@ -19,7 +19,7 @@ public:
     AForm(/* args */);
     AForm( const std::string& name, int gradeToSign, int gradeToExec );
     AForm( const AForm& rhs);
-    ~AForm();
+    virtual ~AForm();
 
     // METHODS
     void    beSigned(const Bureaucrat& rhs);

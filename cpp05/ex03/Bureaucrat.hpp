@@ -16,7 +16,7 @@ private:
     unsigned int _grade;
 public:
     Bureaucrat(); // Default constructor
-    Bureaucrat(std::string& name,int grade);  // Constructor with parameters
+    Bureaucrat(std::string const name,int grade);  // Constructor with parameters
     Bureaucrat(const Bureaucrat &other);
     ~Bureaucrat(); // Destructor
     // GETTERS AND SETTERS

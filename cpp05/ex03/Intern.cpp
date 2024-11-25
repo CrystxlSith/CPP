@@ -20,10 +20,10 @@ AForm*  Intern::makeForm(std::string const formName, std::string target)
 {
     AForm * (*formCreator[3])(std::string&) = {
         createRobotomyRequest, 
-        createPresidentialForm,
         createShrubberyCreation,
+        createPresidentialForm,
     };
-    std::string forms[3] = {
+    const std::string forms[3] = {
         "robotomy request", 
         "shrubbery creation",
         "presidential form",
