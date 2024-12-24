@@ -8,7 +8,5 @@ private:
     ScalarConverter(/* args */);
     ~ScalarConverter();
 public:
-    static void * convert(void *);
+    static void convert(const std::string& literal);
 };
-
-
