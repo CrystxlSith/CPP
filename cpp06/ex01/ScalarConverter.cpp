@@ -10,7 +10,7 @@ ScalarConverter::~ScalarConverter()
     std::cout << "{1} ScalarConvertor Destructor Called" << std::endl;
 }
 
-void    charConvert( const std::string& c )
+void    cConv( const std::string& c )
 {
 
     std::cout << "char: '" << static_cast<char>(c[0]) << "'" << std::endl;
@@ -20,7 +20,7 @@ void    charConvert( const std::string& c )
 
 }
 
-void    floatConvert( const std::string& literal )
+void    fConv( const std::string& literal )
 {
     float f = atof(literal.c_str());
     if (f < 0 || f > 127)
@@ -35,7 +35,7 @@ void    floatConvert( const std::string& literal )
     std::cout << "double: " << static_cast<double>(f) << std::endl;
 }
 
-void    doubleConvert( const std::string& literal )
+void    dConv( const std::string& literal )
 {
     double f = atof(literal.c_str());
     if (f < 0 || f > 127)
@@ -50,7 +50,7 @@ void    doubleConvert( const std::string& literal )
     std::cout << "double: " << f << std::endl;
 }
 
-void    intConvert( const std::string& literal )
+void    iConv( const std::string& literal )
 {
     int f = atof(literal.c_str());
     if (f < 0 || f > 127)
@@ -65,19 +65,85 @@ void    intConvert( const std::string& literal )
     std::cout << "double: " << static_cast<double>(f) << std::endl;
 }
 
+void    maxConv()
+{
+    std::cout << "char: Impossible" << std::endl;
+    std::cout << INT_MAX << std::endl;
+    std::cout << __FLT_MAX__ << std::endl;
+    std::cout << __DBL_MAX__ << std::endl;
+}
+
+void    minConv()
+{
+    std::cout << "char: Impossible" << std::endl;
+    std::cout << INT_MAX << std::endl;
+    std::cout << __FLT_MIN__ << std::endl;
+    std::cout << __DBL_MIN__ << std::endl;
+}
+
+void    nanConv()
+{
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: Impossible" << std::endl;
+	std::cout << "float: nanf" << std::endl;
+	std::cout << "double: nan" << std::endl;   
+}
+
+void    printError()
+{
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: " << 0 << std::endl;
+	std::cout << "float: " << 0 << std::endl;
+	std::cout << "double: " << 0 << std::endl;
+}
+
 void    checkInput( const std::string& literal )
 {
     if ((std::isprint(literal[0])) && (!std::isdigit(literal[0])))
     {
         if (literal.length() == 1)
-            charConvert(literal);
+            cConv(literal);
+        else if (literal == "+inf")
+            maxConv();
+        else if (literal == "-inf")
+            minConv();
+        else if (literal == "nan")
+            nanConv();
+        else
+            printError();
     }
     else if (literal[literal.length() - 1] == 'f')
-        floatConvert(literal);
+    {
+		long unsigned int	i = 0;
+		while (i < literal.length() - 1 && (std::isdigit(literal[i]) || literal[i] == '.'))
+			i++;
+        if (i == literal.length() - 1)
+            fConv(literal);
+        else
+            printError();
+    }
     else if (literal.find('.') != std::string::npos)
-        doubleConvert(literal);
+    {
+		long unsigned int	i = 0;
+		while (std::isdigit(literal[i]) || literal[i] == '.')
+			i++;
+		if (i == literal.length())
+			dConv(literal);
+        else
+            printError();
+    }
     else if (std::isdigit(literal[0]))
-        intConvert(literal);
+    {
+		long unsigned int	i = 0;
+		while (std::isdigit(literal[i]))
+			i++;
+		if (i == literal.length())
+			iConv(literal);
+        else
+            printError();
+    }
+    else
+        printError();
 }
 
 void    ScalarConverter::convert( const std::string& litertal )
