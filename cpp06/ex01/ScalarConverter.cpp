@@ -46,7 +46,22 @@ void    doubleConvert( const std::string& literal )
         std::cout << "char: '" << static_cast<char>(f) << "'" << std::endl;
     std::cout << "int: " << static_cast<int>(f) << std::endl;
     std::cout << std::fixed << std::setprecision(1);
-    std::cout << "float: " << f  << "f" << std::endl;
+    std::cout << "float: " << static_cast<float>(f)  << "f" << std::endl;
+    std::cout << "double: " << f << std::endl;
+}
+
+void    intConvert( const std::string& literal )
+{
+    int f = atof(literal.c_str());
+    if (f < 0 || f > 127)
+        std::cout << "char: impossible" << std::endl;
+    else if (f < 32 || f == 127)
+        std:: cout << "char: Non displayable" << std::endl;
+    else
+        std::cout << "char: '" << static_cast<char>(f) << "'" << std::endl;
+    std::cout << "int: " << f << std::endl;
+    std::cout << std::fixed << std::setprecision(1);
+    std::cout << "float: " << static_cast<float>(f)  << "f" << std::endl;
     std::cout << "double: " << static_cast<double>(f) << std::endl;
 }
 
@@ -61,6 +76,8 @@ void    checkInput( const std::string& literal )
         floatConvert(literal);
     else if (literal.find('.') != std::string::npos)
         doubleConvert(literal);
+    else if (std::isdigit(literal[0]))
+        intConvert(literal);
 }
 
 void    ScalarConverter::convert( const std::string& litertal )
