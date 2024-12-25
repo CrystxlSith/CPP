@@ -1,6 +1,9 @@
 #pragma once
 
 #include <iostream>
+#include <stdlib.h>
+#include <cmath>
+#include <iomanip>
 
 class ScalarConverter
 {
