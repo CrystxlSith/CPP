@@ -150,3 +150,5 @@ void    ScalarConverter::convert( const std::string& litertal )
 {
     checkInput(litertal);
 }
+
+ScalarConverter &	ScalarConverter::operator=(ScalarConverter const &rSym) { return *this; }

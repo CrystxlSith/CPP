@@ -1,4 +1,6 @@
-#pragma once
+#ifndef SCALARCONVERTER_HPP
+# define SCALARCONVERTER_HPP
+
 
 #include <iostream>
 #include <stdlib.h>
@@ -9,8 +11,17 @@
 class ScalarConverter
 {
 private:
-    ScalarConverter(/* args */);
-    ~ScalarConverter();
+	// Constructors
+	ScalarConverter();
+	ScalarConverter(const ScalarConverter &copy);
+	
+	// Destructor
+	~ScalarConverter();
+	
+	// Operators
+	ScalarConverter & operator=(const ScalarConverter &assign);
 public:
     static void convert(const std::string& literal);
 };
+
+#endif
