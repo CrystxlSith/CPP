@@ -58,12 +58,8 @@ Array<T> & Array<T>::operator=(const Array<T> &assign)
 	return *this;
 }
 
-
 template <typename T>
-unsigned int Array<T>::getSize() const
+unsigned int Array<T>::size() const
 {
 	return this->_size;
 }
-
-
-

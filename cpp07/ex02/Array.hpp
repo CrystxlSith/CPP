@@ -24,7 +24,7 @@ class Array
 		~Array();
 
 		// Methods
-		unsigned int getSize() const;
+		unsigned int size() const;
 
 		// Operators
 		Array<T>& operator=(const Array<T>& assign);

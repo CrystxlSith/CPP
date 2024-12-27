@@ -3,15 +3,16 @@
 
 int main( void )
 {
-    int t;
+    int j;
     Array<char> array(4);
-    std::cout << array.getSize() << std::endl;
+    std::cout << "Create a array of size " << array.size() << std::endl;
     for (int i = 0; i < 6; i++)
         {
             try
             {
-                t = array[i];
-                std::cout << "array1[" << i << "] = " << t << std::endl;
+                array[i] = i;
+                j = array[i];
+                std::cout << "array[" << i << "] = " << j << std::endl;
             }
             catch(const std::exception& e)
             {
@@ -19,5 +20,6 @@ int main( void )
             }
         }
         std::cout << std::endl;
+    
     return 0;
 }
