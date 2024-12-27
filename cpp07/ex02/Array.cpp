@@ -65,9 +65,5 @@ unsigned int Array<T>::getSize() const
 	return this->_size;
 }
 
-template <class T>
-const char* Array<T>::outOfRange::what() const throw()
-{
-	return ("Value is out of bound.");
-}
+
 

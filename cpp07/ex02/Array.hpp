@@ -31,7 +31,9 @@ class Array
 		T& 		operator[](unsigned int index);		
 		// Exceptions
 		class outOfRange : public std::exception {
-			virtual const char* what() const throw() ;
+			virtual const char* what() const throw() {
+				return "Value is out of bound.";
+			}
 		};
 		
 };
