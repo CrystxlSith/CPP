@@ -6,7 +6,7 @@ int main( void )
     int j;
     Array<char> array(4);
     std::cout << "Create a array of size " << array.size() << std::endl;
-    for (int i = 0; i < 6; i++)
+    for (int i = 0; i < 12; i++)
         {
             try
             {
