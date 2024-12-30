@@ -63,11 +63,30 @@ void testWithRandomNumbers()
     }
 }
 
+void    testIteratorRange()
+{
+    Span sp(10);
+
+    try
+    {
+        int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        std::vector<int> numbers(arr, arr + sizeof(arr) / sizeof(int));
+        sp.addNumbers(numbers.begin(), numbers.end());
+        std::cout << "iterator test passed" << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
+}
+
 int main()
 {
     testWithSmallNumbers();
     testWithLargeNumbers();
     testWithRandomNumbers();
+    testIteratorRange();
     Span sp = Span(5);
     sp.addNumber(6);
     sp.addNumber(3);

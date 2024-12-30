@@ -11,10 +11,8 @@ Span::Span(const unsigned int num) : _maxNb(num)
 	std::cout << "\e[0;33m{1} Constructor called of Span\e[0m" << std::endl;
 }
 
-Span::Span(const Span &copy)
+Span::Span(const Span &copy) : _array(copy._array), _maxNb(copy._maxNb)
 {
-	this->_array = copy._array;
-	this->_maxNb = copy._maxNb;
 	std::cout << "\e[0;33mCopy Constructor called of Span\e[0m" << std::endl;
 }
 
