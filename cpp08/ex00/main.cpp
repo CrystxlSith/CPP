@@ -3,7 +3,7 @@
 
 int main( void )
 {
-    std::vector<int>  list;
+    std::list<int>  list;
 
     list.push_back(30);
     list.push_back(54);
