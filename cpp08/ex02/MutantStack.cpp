@@ -23,11 +23,11 @@ MutantStack<T>::~MutantStack()
 
 
 // Operators
-// template <typename T>
-// MutantStack<T> & MutantStack<T>::operator=(const MutantStack<T> &assign)
-// {
-//     if (this != &assign)
-//         *this = assign;
-//     return *this;
-// }
+template <typename T>
+MutantStack<T> & MutantStack<T>::operator=(const MutantStack<T> &assign)
+{
+    if (this != &assign)
+        *this = assign;
+    return *this;
+}
 

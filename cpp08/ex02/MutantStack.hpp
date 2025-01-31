@@ -18,14 +18,7 @@ class MutantStack : public std::stack<T>
 		// Destructor
 		~MutantStack<T>();
 		// Operators
-        MutantStack & operator=(const MutantStack &assign)
-        {
-            if (this != &assign)
-            {
-                std::stack<T>::operator=(assign);
-            }
-            return *this;
-        }		
+        MutantStack & operator=(const MutantStack &assign);	
 
 		// Iterator
 		typedef typename std::stack<T>::container_type::iterator iterator;
