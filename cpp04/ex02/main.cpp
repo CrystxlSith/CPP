@@ -1,22 +1,22 @@
 #include "Brain.hpp"
 #include "Cat.hpp"
+#include "AAnimal.hpp"
 
 int main()
 {
-    AAnimal* animals[50];
+    // AAnimal* animals[50];
 
-    for (int i = 0; i < 25; i++)
-        animals[i] = new Cat();
-    for (int i = 0; i < 25; i++)
-        animals[i]->makeSound();
-    for (int i = 25; i < 50; i++)
-        animals[i] = new Dog();
-    for (int i = 25; i < 50; i++)
-        animals[i]->makeSound();
+    // for (int i = 0; i < 25; i++)
+    //     animals[i] = new Cat();
+    // for (int i = 0; i < 25; i++)
+    //     animals[i]->makeSound();
+    // for (int i = 25; i < 50; i++)
+    //     animals[i] = new Dog();
+    // for (int i = 25; i < 50; i++)
+    //     animals[i]->makeSound();
 
-    for (size_t i = 0; i < 50; i++)
-        delete animals[i];
-
+    // for (size_t i = 0; i < 50; i++)
+    //     delete animals[i];
 
     // const Animal* meta = new Animal();
 

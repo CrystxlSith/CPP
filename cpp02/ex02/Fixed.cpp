@@ -147,12 +147,6 @@ Fixed const &	Fixed::max(Fixed const &a, Fixed const &b)
     return (a > b ? a : b);
 }
 
-
-// Fixed const &  Fixed::max(Fixed const &a, Fixed const &b)
-// {
-//     return (a > b ? a : b);
-// }
-
 Fixed&  Fixed::max(Fixed &a, Fixed &b)
 {
     return (a > b ? a : b);

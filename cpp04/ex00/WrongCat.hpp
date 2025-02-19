@@ -5,7 +5,7 @@ class WrongCat : public WrongAnimal
 public:
     WrongCat(void);
     WrongCat(const WrongCat& copy);
-    virtual ~WrongCat();
+    ~WrongCat();
     // METHODS
     virtual void makeSound(void) const;
     // OPERATOR OVERLOAD

@@ -36,7 +36,7 @@ void    Brain::shoutIdeas()
     const std::string randomThings[] = {
         "I'm so lonely :(",
         "I want friends",
-        "It's ok i'm just a drug addict !",
+        "It's ok i'm just a drug addict",
         "My dad left to buy cigarettes, he will come back soon",
         "I wonder if clouds ever look down on us and say 'Hey look, that one is shaped like an idiot.'",
         "If a turtle doesn't have a shell, is it homeless or naked?",
@@ -46,7 +46,7 @@ void    Brain::shoutIdeas()
         "I'm a cat in a dog's body",
         "I'm a cat in a cat's body",
         "I'm a dog in a dog's body",
-        "Thinking about the yesterday's cat's rave party"
+        "Thinking about the yesterday cat's rave party"
     };
     for (size_t i = 0; i < IDEAS; i++)
         this->ideas[i] = randomThings[rand() % 12];

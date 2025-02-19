@@ -13,6 +13,7 @@ int main()
     while (true)
     {
         welcome_message();
+        
         std::getline(std::cin, input);
         if (input.empty())
             break;
