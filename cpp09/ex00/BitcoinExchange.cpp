@@ -3,21 +3,25 @@
 
 BitcoinExchange::BitcoinExchange(/* args */)
 {
-   
+    std::cout << "BitcoinExcvchange constructor called" << std::endl;
+
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange & copy)
 {
-    (void)copy;
+    std::cout << "BitcoinExcvchange copy constructor called" << std::endl;
+    this->_data = copy._data;
 }
 
 BitcoinExchange::~BitcoinExchange()
 {
+    std::cout << "BitcoinExcvchange destructor called" << std::endl;
 }
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange& rhs)
 {
-    (void)rhs;
+    if (this != &rhs)
+        this->_data = rhs._data;
     return *this;
 }
 
