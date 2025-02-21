@@ -10,7 +10,7 @@ public:
     WrongAnimal(void);
     WrongAnimal(std::string type);
     WrongAnimal(const WrongAnimal& copy);
-    ~WrongAnimal();
+    virtual ~WrongAnimal();
     // Methods
     virtual void    makeSound(void) const;
     // Operator overloads

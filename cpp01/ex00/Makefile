@@ -1,8 +1,7 @@
 SRCS = Zombie.cpp randomChump.cpp main.cpp newZombie.cpp
 CC = c++
-FLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP
+FLAGS = -Wall -Werror -Wextra -std=c++98
 OBJS = ${SRCS:.cpp=.o}
-DEPS = ${SRCS:.cpp=.d}
 EXEC = zombie
 RM = rm -rf
 
@@ -16,26 +15,20 @@ RESET  = \033[0m
 
 .SILENT:
 
-all: ${EXEC}
+all: zombie
 
-${EXEC}: $(OBJS)
-	echo "${CYAN}Compiling $<...${RESET}"
-	${CC} ${FLAGS} ${OBJS} -o ${EXEC}
-	echo "${GREEN}Success!!!${RESET}"
-
--include ${DEPS}
-%.o: %.cpp
-	echo "${YELLOW}Compiling $<...${RESET}"
-	${CC} ${FLAGS} -c $< -o $@
-
+zombie: $(OBJS)
+	echo "${CYAN}Compiling Zombie...${RESET}"
+	${CC} ${FLAGS} ${SRCS} -o ${EXEC}
+	echo "${GREEN}Succes!!!${RESET}"
 clean:
 	echo "${RED}Cleaning Zombie...${RESET}"
-	${RM} ${OBJS} ${DEPS}
-	echo "${GREEN}Success!!!${RESET}"
-
-fclean: clean
+	${RM} ${OBJS}
+	echo "${GREEN}Succes!!!${RESET}"
+fclean:
 	echo "${RED}Cleaning Zombie...${RESET}"
+	${RM} ${OBJS}
 	${RM} ${EXEC}
 	echo "${GREEN}Succes!!!${RESET}"
 
-re: fclean all
+re: clean fclean all

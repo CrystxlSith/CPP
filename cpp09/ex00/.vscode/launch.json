@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/jopfeiff/Documents/CPP/cpp01/ex05",
-      "program": "/home/jopfeiff/Documents/CPP/cpp01/ex05/build/Debug/outDebug",
+      "cwd": "/home/rottbliss/42/CPP/cpp09/ex00",
+      "program": "/home/rottbliss/42/CPP/cpp09/ex00/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

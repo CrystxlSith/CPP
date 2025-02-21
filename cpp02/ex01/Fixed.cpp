@@ -7,14 +7,11 @@ Fixed::Fixed(/* args */) : _fixedPoint(0)
 
 Fixed::Fixed( const int n ) : _fixedPoint(n << Bits)
 {
-    std::cout << _fixedPoint << std::endl;
-
     std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed( const float f ) : _fixedPoint(roundf(f * (1 << Bits)))
 {
-    std::cout << _fixedPoint << std::endl;
     std::cout << "Float constructor called" << std::endl;
 }
 

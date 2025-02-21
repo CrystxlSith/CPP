@@ -9,8 +9,7 @@ public:
     ScavTrap(void);
     ScavTrap(std::string name);
     ScavTrap(const ScavTrap& scavtrap);
-    virtual ~ScavTrap(void);
-
+    ~ScavTrap(void);
     // OPERATOR OVERLOAD
     ScavTrap& operator=(const ScavTrap& scavtrap);
 

@@ -54,3 +54,18 @@ int	main(void)
 	b.beRepaired(1);
 	a.highFivesGuys();
 }
+// int main( void )
+// {
+//     FragTrap fragtrap("FragTrap");
+//     FragTrap fragtrap2("FragTrap2");
+
+//     fragtrap.attack("Skag");
+//     fragtrap.takeDamage(5);
+//     fragtrap.beRepaired(5);
+//     fragtrap2.attack("Skag");
+//     fragtrap2.takeDamage(5);
+//     fragtrap2.beRepaired(5);
+//     fragtrap.guardGate();
+//     fragtrap.highFivesGuys();
+//     return 0;
+// }

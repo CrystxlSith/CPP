@@ -2,7 +2,6 @@
 
 Zombie::Zombie( std::string name )
 {
-    std::cout << name << " has been created" << std::endl;
     _name = name;
 }
 

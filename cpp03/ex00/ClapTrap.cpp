@@ -58,7 +58,7 @@ void    ClapTrap::beRepaired( unsigned int amount )
     {
         if (this->getEnergyPoints() > 0)
         {
-            std::cout << "ClapTrap " << this->getName() << " repairs " << amount << " damage(s)! " << "He now have " << this->getHitpoints() + amount << " hit points." << std::endl;
+            std::cout << "ClapTrap " << this->getName() << " repairs " << amount << " damage(s)! " << "He now has " << this->getHitpoints() + amount << " hit points." << std::endl;
             this->setHitpoints(this->getHitpoints() + (int)amount);
             this->setEnergyPoints(this->getEnergyPoints() - 1);
         }
