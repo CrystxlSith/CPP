@@ -26,6 +26,7 @@ void    RobotomyRequestForm::execute( Bureaucrat const & executor )
 {
     if (this->getSignature() == true)
     {
+        srand(time(NULL));
         executor.executeForm(*this);
         std::cout << "Brrrr... Brrrrr... Brrrrr..." << std::endl;
         int randomValue = std::rand() % 2; // 0 ou 1

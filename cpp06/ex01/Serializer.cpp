@@ -27,7 +27,8 @@ Data* Serializer::deserialize( uintptr_t raw ) { return reinterpret_cast<Data *>
 // Operators
 Serializer & Serializer::operator=(const Serializer &assign)
 {
-	(void) assign;
+	if (this == &assign)
+	  return *this;
 	return *this;
 }
 

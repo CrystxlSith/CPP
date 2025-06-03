@@ -30,4 +30,3 @@ MutantStack<T> & MutantStack<T>::operator=(const MutantStack<T> &assign)
         *this = assign;
     return *this;
 }
-

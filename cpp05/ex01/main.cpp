@@ -7,8 +7,8 @@ int main(void)
     std::string formName = "Death certificate";
     try
     {
-        Bureaucrat bbl(name, 51);
-        Form        formy(formName, 50, 55);
+        Bureaucrat bbl(name, 40);
+        Form        formy(formName, 40, 39);
         formy.beSigned(bbl);
         std::cout << bbl << std::endl;
         std::cout << formy << std::endl;

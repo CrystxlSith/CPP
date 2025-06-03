@@ -17,6 +17,7 @@ AForm::AForm( const std::string& name, int gradeToSign, int gradeToExec ) : _gra
 AForm::AForm( const AForm& rhs ) : _gradeSign(rhs._gradeSign), _name(rhs._name), _signed(rhs._signed), _gradeExec(rhs._gradeExec)
 {
     *this = rhs;
+    
 }
 
 AForm::~AForm() {}

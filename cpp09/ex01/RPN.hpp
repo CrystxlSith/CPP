@@ -8,6 +8,7 @@
 # include <cstdlib>
 
 static const std::string OPERATORS = "+-*/";
+static const std::string NUMBERS = "0123456789";
 
 class RPN
 {

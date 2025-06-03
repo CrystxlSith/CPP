@@ -35,27 +35,43 @@ void	Span::addNumber(int N)
 
 int		Span::shortestSpan()
 {
-	if (_array.size() <= 1)
-		throw noFindDist();
-	std::vector<int> sortedArray = _array;
-	std::sort(sortedArray.begin(), sortedArray.end());
-	int shortest = INT_MAX;
-	for (size_t i = 1; i < sortedArray.size(); ++i)
+	try
 	{
-		int span = sortedArray[i] - sortedArray[i - 1];
-		if (span < shortest)
-			shortest = span;
+		if (_array.size() <= 1)
+			throw noFindDist();
+		std::vector<int> sortedArray = _array;
+		std::sort(sortedArray.begin(), sortedArray.end());
+		int shortest = std::numeric_limits<int>::max();
+		for (size_t i = 1; i < sortedArray.size(); ++i)
+		{
+			int span = sortedArray[i] - sortedArray[i - 1];
+			if (span < shortest)
+				shortest = span;
+		}
+		return (shortest);
 	}
-	return (shortest);
+	catch (const std::exception &e)
+	{
+		std::cerr << "Error: " << e.what() << std::endl;
+		return -1; 
+	}
 }
 
 int		Span::longestSpan()
 {
-	if (_array.size() <= 1)
-		throw noFindDist();
-	int shortest = *std::min_element(_array.begin(), _array.end());
-	int biggest = *std::max_element(_array.begin(), _array.end());
-	return (biggest - shortest);
+	try
+	{
+		if (_array.size() <= 1)
+			throw noFindDist();
+		int shortest = *std::min_element(_array.begin(), _array.end());
+		int biggest = *std::max_element(_array.begin(), _array.end());
+		return (biggest - shortest);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << "Error: " << e.what() << std::endl;
+		return -1;
+	}
 }
 
 void Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
@@ -85,5 +101,5 @@ const char * Span::noNeedMore::what() const throw()
 }
 const char * Span::noFindDist::what() const throw()
 {
-	return " no distance finded";
+	return " no distance found";
 }

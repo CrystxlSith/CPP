@@ -30,8 +30,8 @@ void    RobotomyRequestForm::execute( Bureaucrat const & executor )
         std::cout << "Brrrr... Brrrrr... Brrrrr..." << std::endl;
         int randomValue = std::rand() % 2; // 0 ou 1
         if (randomValue == 1)
-            std::cout << executor.getName() << " has been Robotomized 🤖🤖🤖🤖" << std::endl;
+            std::cout << this->_target << " has been Robotomized 🤖🤖🤖🤖" << std::endl;
         else
-            std::cout << executor.getName() << " Robotomization failed..." << std::endl;
+            std::cout << this->_target << " Robotomization failed..." << std::endl;
     }
 }

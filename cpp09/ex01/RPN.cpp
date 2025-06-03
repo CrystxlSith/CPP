@@ -3,25 +3,20 @@
 // Constructors
 RPN::RPN() : str("")
 {
-	std::cout << "\e[0;33mDefault Constructor called of RPN\e[0m" << std::endl;
 }
 
 RPN::RPN(const RPN &copy) : str(copy.str)
 {
 	this->pile = copy.pile;
-	std::cout << "\e[0;33mCopy Constructor called of RPN\e[0m" << std::endl;
 }
 
 RPN::RPN(const std::string &line) : str(line)
 {
-	std::cout << "\e[0;33mString Constructor called of RPN\e[0m" << std::endl;
-	this->fill_stack();
 }
 
 // Destructor
 RPN::~RPN()
 {
-	std::cout << "\e[0;31mDestructor called of RPN\e[0m" << std::endl;
 }
 
 void RPN::fill_stack()
@@ -31,6 +26,12 @@ void RPN::fill_stack()
 
 	while (ss >> token)
 	{
+		std::cout << "token = " << token << std::endl;
+		if (token.empty())
+			throw std::runtime_error("Erreur: Token vide");
+		if (NUMBERS.find(token) == std::string::npos && 
+			OPERATORS.find(token) == std::string::npos)
+			throw std::runtime_error("Erreur: Token invalide");
 		if (OPERATORS.find(token) != std::string::npos)
 		{
 			if (this->pile.size() < 2)

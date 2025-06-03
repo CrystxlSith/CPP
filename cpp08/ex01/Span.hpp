@@ -6,7 +6,9 @@
 # include <list>
 # include <vector>
 # include <algorithm>
-# include <limits.h> 
+# include <limits.h>
+# include <limits>
+# include <exception>
 
 class Span
 {

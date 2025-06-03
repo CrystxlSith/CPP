@@ -64,11 +64,11 @@ void    identify(Base& p)
 
 int main( void )
 {
+    srand(static_cast<unsigned int>(time( NULL )));
     Base * base = generate();
-    srand(static_cast<unsigned int>(time(0)));
 
     identify(base);
     identify(*base);
 
-    return 0;
+    return (0);
 }

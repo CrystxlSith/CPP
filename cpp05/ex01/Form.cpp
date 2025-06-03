@@ -37,7 +37,11 @@ void     Form::beSigned(const Bureaucrat& rhs)
         rhs.signForm(this->_signed, this->getName());
     }
     else
+    {
+        this->_signed = false;
+        rhs.signForm(this->_signed, this->getName());
         throw Form::GradeTooLowException();
+    }
 }
 
 

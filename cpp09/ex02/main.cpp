@@ -20,6 +20,6 @@ int main(int argc, char const *argv[])
         PmergeMe ford(input);
     }
     else
-        throw std::runtime_error("Usage ./PmergeMe <positive numbers>");
+        std::cout << "Usage ./PmergeMe <positive numbers>" << std::endl;
     return 0;
 }

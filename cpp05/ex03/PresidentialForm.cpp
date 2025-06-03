@@ -21,10 +21,10 @@ void    PresidentialForm::execute( Bureaucrat const & executor )
     if ( this->getSignature() == true)
     {
         executor.executeForm(*this);
-        std::cout << executor.getName() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+        std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
     }
     else
-        std::cout << "Zaphod Beeblebrox cannot give his pardon to " << executor.getName() << std::endl;
+        std::cout << "Zaphod Beeblebrox cannot give his pardon to " << this->_target << std::endl;
 }
 
 PresidentialForm& PresidentialForm::operator=(PresidentialForm const &rSym)

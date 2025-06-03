@@ -20,8 +20,6 @@ Array<T>::Array(const Array<T> &copy) : _array(new T[copy._size]), _size(copy._s
 template <typename T>
 Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n) 
 {
-	for (unsigned int i = 0; i < n; i++)
-		_array[i] = 0;
 	std::cout << "\e[0;33mDefault Constructor called of Array\e[0m" << std::endl;
 }
 
