@@ -26,7 +26,7 @@ void RPN::fill_stack()
 
 	while (ss >> token)
 	{
-		std::cout << "token = " << token << std::endl;
+		// std::cout << "token = " << token << std::endl;
 		if (token.empty())
 			throw std::runtime_error("Erreur: Token vide");
 		if (NUMBERS.find(token) == std::string::npos && 

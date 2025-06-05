@@ -2,62 +2,73 @@
 
 // Constructors
 PmergeMe::PmergeMe(std::vector<int> &input) 
-	: _vec(input), _lastElement_vec(0), _lastElement_deq(0)
+    : _vec(input), _lastElement_vec(0), _lastElement_deq(0)
 {
-	std::vector<int> temp = _vec; // Copie temporaire
-	_deq.clear();
-	
-	for (size_t i = 0; i < temp.size(); ++i) {
-		_deq.push_back(temp[i]);
-	}
-	
-	if (_deq.size() != _vec.size()) {
-		std::cout << "Error: deque size mismatch after initialization" << std::endl;
-		return;
-	}
-	
-	clock_t start_vec = clock();
-	this->_makePairs();
-	clock_t end_vec = clock();
-	double time_vec = static_cast<double>(end_vec - start_vec) / CLOCKS_PER_SEC * 10000;
+    for (size_t i = 0; i < input.size(); ++i) {
+        for (size_t j = i + 1; j < input.size(); ++j) {
+            if (input[i] == input[j]) {
+                std::cout << "Error: Duplicate value detected: " << input[i] << std::endl;
+                _vec.clear();
+                _deq.clear();
+                return;
+            }
+        }
+    }
 
-	clock_t start_deq = clock();
-	this->_makePairsDeque();
-	clock_t end_deq = clock();
-	double time_deq = static_cast<double>(end_deq - start_deq) / CLOCKS_PER_SEC * 10000;
+    std::vector<int> temp = _vec; 
+    _deq.clear();
+    
+    for (size_t i = 0; i < temp.size(); ++i) {
+        _deq.push_back(temp[i]);
+    }
+    
+    if (_deq.size() != _vec.size()) {
+        std::cout << "Error: deque size mismatch after initialization" << std::endl;
+        return;
+    }
+    
+    clock_t start_vec = clock();
+    this->_makePairs();
+    clock_t end_vec = clock();
+    double time_vec = static_cast<double>(end_vec - start_vec) / CLOCKS_PER_SEC * 10000;
 
-	std::cout << "Time to process a range of " << _vec.size() << " elements with std::vector : " << time_vec << " us" << std::endl;
-	std::cout << "Time to process a range of " << _deq.size() << " elements with std::deque : " << time_deq << " us" << std::endl;
+    clock_t start_deq = clock();
+    this->_makePairsDeque();
+    clock_t end_deq = clock();
+    double time_deq = static_cast<double>(end_deq - start_deq) / CLOCKS_PER_SEC * 10000;
+
+    std::cout << "Time to process a range of " << _vec.size() << " elements with std::vector : " << time_vec << " us" << std::endl;
+    std::cout << "Time to process a range of " << _deq.size() << " elements with std::deque : " << time_deq << " us" << std::endl;
 }
 
 PmergeMe::PmergeMe(const PmergeMe &copy)
 {
-	*this = copy;
+    *this = copy;
 }
 
 // Destructor
 PmergeMe::~PmergeMe()
 {
-	if (_vec.size() != _deq.size()) {
-		std::cout << "Warning: vector size (" << _vec.size() 
-				  << ") != deque size (" << _deq.size() << ")" << std::endl;
-	}
-	
-	_deq.clear();
-	_vec.clear();
+    if (_vec.size() != _deq.size()) {
+        std::cout << "Warning: vector size (" << _vec.size() 
+                  << ") != deque size (" << _deq.size() << ")" << std::endl;
+    }
+    
+    _deq.clear();
+    _vec.clear();
 }
 
 // Operators
 PmergeMe & PmergeMe::operator=(const PmergeMe &assign)
 {
-	if (this != &assign)
-	{
-		this->_vec = assign._vec;
-		this->_deq = assign._deq;
-		this->_lastElement_vec = assign._lastElement_vec;
-		this->_lastElement_deq = assign._lastElement_deq;
-	}
-	return *this;
+    if (this != &assign)
+    {
+        this->_vec = assign._vec;
+        this->_deq = assign._deq;
+        this->_lastElement_vec = assign._lastElement_vec;
+        this->_lastElement_deq = assign._lastElement_deq;
+    }
+    return *this;
 }
 
 // Methods vector
