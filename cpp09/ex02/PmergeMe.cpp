@@ -1,9 +1,17 @@
 #include "PmergeMe.hpp"
 
+// 1 : Pair division
+// 2 : Grouping pairs, first element is the bigger one, second is the smaller one
+// 3 : We made 2 groups, 1rst group (mainGroup) is the first elements of pairs, 2nd group (secondaryGroup) is the second elements of pairs
+// 4 : We sort the mainGroup recursively
+// 5 : We insert the secondaryGroup elements in the mainGroup at the right position with binary search
+// 6 : Insertion of the last element if the vector size is odd
+
 // Constructors
 PmergeMe::PmergeMe(std::vector<int> &input) 
     : _vec(input), _lastElement_vec(0), _lastElement_deq(0)
 {
+	// Dupicate verification
     for (size_t i = 0; i < input.size(); ++i) {
         for (size_t j = i + 1; j < input.size(); ++j) {
             if (input[i] == input[j]) {
@@ -27,6 +35,7 @@ PmergeMe::PmergeMe(std::vector<int> &input)
         return;
     }
     
+	// Timing the processing of pairs
     clock_t start_vec = clock();
     this->_makePairs();
     clock_t end_vec = clock();
@@ -72,6 +81,7 @@ PmergeMe & PmergeMe::operator=(const PmergeMe &assign)
 }
 
 // Methods vector
+// This method processes pairs of elements in the vector, sorts them, and groups them.
 void PmergeMe::_makePairs()
 {
 	std::vector<std::pair<int, int> > pairs;
@@ -101,6 +111,8 @@ void PmergeMe::_makePairs()
 	print_vector(_vec);
 }
 
+
+// This method groups pairs of elements and recursively sorts the main group.
 void PmergeMe::_groups(std::vector<std::pair<int, int> > &pairs)
 {
 	std::vector<int>	mainGroup;
@@ -163,6 +175,9 @@ void	PmergeMe::_recursiveMainGroup(std::vector<int>	&mainGroup)
 	}
 }
 
+
+// Binary search function for vector
+// This function finds the position to insert the target in a sorted vector.
 size_t binarySearch(const std::vector<int>& arr, int target) {
 	size_t left = 0;
 	size_t right = arr.size();
@@ -278,7 +293,6 @@ void PmergeMe::_recursiveMainGroupDeque(std::deque<int> &mainGroup)
 
 	if (mainGroup.size() > initial_size * 2) {
 		std::cout << "Warning: deque size grew unexpectedly!" << std::endl;
-		// Limiter la taille pour éviter une explosion
 		while (mainGroup.size() > initial_size * 2) {
 			mainGroup.pop_back();
 		}
